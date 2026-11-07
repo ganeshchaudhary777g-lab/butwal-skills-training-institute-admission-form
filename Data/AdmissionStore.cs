@@ -674,7 +674,7 @@ public sealed class AdmissionStore
         using (var check = connection.CreateCommand())
         {
             check.CommandText = _usePostgres
-                ? "SELECT EXISTS(SELECT 1 FROM information_schema.columns WHERE table_schema=current_schema() AND table_name='students' AND column_name=@column);"
+                ? "SELECT EXISTS(SELECT 1 FROM information_schema.columns WHERE table_schema=current_schema() AND table_name='students' AND LOWER(column_name)=LOWER(@column));"
                 : "SELECT COUNT(*) FROM pragma_table_info('Students') WHERE name=@column;";
             check.Parameters.AddWithValue("@column", column);
             exists = Convert.ToInt32(check.ExecuteScalar(), CultureInfo.InvariantCulture) > 0;
@@ -682,7 +682,8 @@ public sealed class AdmissionStore
         if (exists) return;
         if (column is not ("FatherName" or "PreferredClassTime")) throw new InvalidOperationException("Unexpected schema migration column.");
         using var alter = connection.CreateCommand();
-        alter.CommandText = $"ALTER TABLE Students ADD COLUMN {column} TEXT NOT NULL DEFAULT '';";
+        var ifMissing = _usePostgres ? "IF NOT EXISTS " : "";
+        alter.CommandText = $"ALTER TABLE Students ADD COLUMN {ifMissing}{column} TEXT NOT NULL DEFAULT '';";
         alter.ExecuteNonQuery();
     }
 

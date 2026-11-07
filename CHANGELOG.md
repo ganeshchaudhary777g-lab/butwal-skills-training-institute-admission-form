@@ -2,6 +2,8 @@
 
 ## Hosting-readiness fixes (2026-11-07)
 
+- PostgreSQL startup crash fixed: the column check compared `FatherName` with PostgreSQL's lower-case `fathername`, so the app tried to add an existing column and exited (`42701 column "fathername" ... already exists`). The check is now case-insensitive and the ALTER uses `IF NOT EXISTS`. The converted schema and all main queries were run against a real PostgreSQL 16 server.
+- Dockerfile installs `libgssapi-krb5-2` (Npgsql logged `Cannot load library libgssapi_krb5.so.2`).
 - Dockerfile: removed `groupadd`/`useradd` for `app`. The official .NET images already contain that user, so the old lines would fail the Docker build. The image now reuses the existing `app` user.
 - `/healthz` no longer touches the database and is exempt from the HTTPS-only check, so hosting health checks pass even without `X-Forwarded-Proto`. Use `/healthz/db` for a manual database check.
 - Admin dashboard: the CSRF token is refreshed after sign-in and cleared after sign-out. Before, the first status/payment change after logging in could fail with "Refresh the page and try again."

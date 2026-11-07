@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#12347a">
+  <meta name="description" content="Online admission form of Butwal Skills Training Institute, Butwal-8, Milanchowk, Rupandehi, Nepal.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Butwal Skills Training Institute | Admission Form">
+  <meta property="og:description" content="Fill in the admission form online. Add your passport-size photo and apply.">
+  <meta property="og:image" content="/assets/butwal-skills-logo.png">
+  <title>Admission Form | Butwal Skills Training Institute</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/form.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+      <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6 3h4l2 5-2.5 1.5a11 11 0 0 0 5 5L16 12l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2z"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v15H6a2 2 0 0 0-2 2z"/><path d="M4 20a2 2 0 0 0 2 1h13v-3"/></symbol>
+      <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+      <symbol id="i-wallet" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18M16 15h2"/></symbol>
+      <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h7"/></symbol>
+    </defs>
+  </svg>
+
+  <main class="paper" id="top">
+    <header class="letterhead">
+      <img class="logo" src="/assets/butwal-skills-logo.png" alt="Butwal Skills Training Institute logo" width="139" height="95">
+      <div class="institute">
+        <h1>Butwal Skills <span>Training Institute</span></h1>
+        <p class="tagline">Skill for Better Tomorrow</p>
+        <p class="address"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>Butwal-8, Milanchowk, Rupandehi, Nepal</p>
+      </div>
+      <p class="motto">Learn Skills<br>Build Your Future</p>
+    </header>
+
+    <div class="banner"><svg class="ic" aria-hidden="true"><use href="#i-cap"/></svg><h2>ADMISSION FORM</h2></div>
+
+    <div id="applicationFormWrap">
+      <form id="admissionForm" novalidate>
+        <div class="details">
+          <div class="photo-col">
+            <button type="button" id="photoButton" class="photo-frame" aria-describedby="photoHelp">
+              <img id="photoPreview" alt="Your photo" hidden>
+              <span class="photo-empty" id="photoEmpty"><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg><b>Add photo</b><small>Passport size</small></span>
+            </button>
+            <input id="photoInput" type="file" accept="image/*" hidden>
+            <p id="photoHelp" class="photo-help">Tap the box and choose a passport-size photo from your gallery.</p>
+            <p id="photoError" class="field-error" role="alert" hidden></p>
+          </div>
+
+          <div class="fields">
+            <div class="row"><svg class="ic" aria-hidden="true"><use href="#i-doc"/></svg><span class="label">No.</span><span class="value muted">Given after you apply</span></div>
+            <label class="row" for="fullName"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg><span class="label">Name</span><input id="fullName" name="fullName" required maxlength="100" autocomplete="name"></label>
+            <label class="row" for="fatherName"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg><span class="label">Father's Name</span><input id="fatherName" name="fatherName" required maxlength="100" autocomplete="off"></label>
+            <label class="row" for="dateOfBirth"><svg class="ic" aria-hidden="true"><use href="#i-calendar"/></svg><span class="label">Date of Birth <small>(English date)</small></span><input id="dateOfBirth" name="dateOfBirth" type="date" required></label>
+            <label class="row" for="permanentAddress"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg><span class="label">Address</span><input id="permanentAddress" name="permanentAddress" required maxlength="300" autocomplete="street-address"></label>
+            <label class="row" for="highestQualification"><svg class="ic" aria-hidden="true"><use href="#i-cap"/></svg><span class="label">Qualification</span><input id="highestQualification" name="highestQualification" required maxlength="150" placeholder="e.g. SEE, +2, BBA running"></label>
+            <label class="row" for="mobileNumber"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg><span class="label">Contact No.</span><input id="mobileNumber" name="mobileNumber" required maxlength="20" inputmode="tel" autocomplete="tel" pattern="^(\+977[\- ]?)?9[0-9]{9}$" title="10-digit mobile number starting with 9, for example 98XXXXXXXX" placeholder="98XXXXXXXX"></label>
+            <label class="row" for="preferredClassTime"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg><span class="label">Time</span><input id="preferredClassTime" name="preferredClassTime" maxlength="80" placeholder="e.g. 10 to 12"></label>
+            <label class="row" for="courseSelect"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg><span class="label">Course</span><select id="courseSelect" name="courseId" required><option value="">Loading courses…</option></select></label>
+          </div>
+        </div>
+
+        <section class="money" aria-labelledby="feeTitle">
+          <div class="pay-fields">
+            <h3 id="feeTitle"><svg class="ic" aria-hidden="true"><use href="#i-wallet"/></svg>Fee and payment</h3>
+            <label class="row compact" for="paymentMethod"><span class="label">Payment method</span><select id="paymentMethod" name="paymentMethod" required><option value="Cash">Cash, at the institute</option><option value="eSewa">eSewa</option><option value="Bank Transfer">Bank transfer</option></select></label>
+            <div id="referenceRow" hidden>
+              <label class="row compact" for="transactionReference"><span class="label">Transaction reference</span><input id="transactionReference" name="transactionReference" maxlength="80" placeholder="Optional"></label>
+              <button type="button" id="qrOpenButton" class="link-button" data-qr-open hidden>Show eSewa QR</button>
+            </div>
+            <p class="small-note">The institute checks every payment before it is counted as paid.</p>
+          </div>
+          <table class="fee-box">
+            <tbody>
+              <tr><th scope="row">Total Fee</th><td id="totalFee">Choose a course</td></tr>
+              <tr><th scope="row"><label for="initialPaidAmount">Paid Fee</label></th><td><input id="initialPaidAmount" name="initialPaidAmount" type="number" min="0" step="1" value="0" inputmode="numeric" aria-describedby="feeNote"></td></tr>
+              <tr><th scope="row">Remaining Fee</th><td id="remainingFee">—</td></tr>
+            </tbody>
+          </table>
+        </section>
+        <p id="feeNote" class="small-note fee-note"></p>
+
+        <section class="rules" aria-labelledby="rulesTitle">
+          <h3 id="rulesTitle"><svg class="ic" aria-hidden="true"><use href="#i-doc"/></svg>Rules &amp; Regulations</h3>
+          <ol>
+            <li>Students should be punctual and disciplined in the institution.</li>
+            <li>Students are allowed in class only during their scheduled class time.</li>
+            <li>If a student damages institutional property, the student is responsible for the resulting damage.</li>
+            <li>Fees should be paid on time.</li>
+            <li>A certificate will be provided after course completion and payment of course fees.</li>
+            <li>Payments made during the course are non-refundable.</li>
+          </ol>
+        </section>
+
+        <label class="confirm"><input name="confirmInformation" type="checkbox" required><span>I have read the rules and confirm that the details and photo above are correct.</span></label>
+        <div id="formMessage" class="form-message" role="alert" hidden></div>
+        <button id="submitApplication" class="primary" type="submit">Review and apply</button>
+      </form>
+
+      <dialog id="reviewDialog" class="dialog" aria-labelledby="reviewTitle">
+        <div class="dialog-inner">
+          <h3 id="reviewTitle">Check your form</h3>
+          <p>Make sure everything is correct. You cannot change it after you apply.</p>
+          <img id="reviewPhoto" class="review-photo" alt="Your photo" hidden>
+          <dl id="reviewSummary" class="review-summary"></dl>
+          <div class="dialog-actions">
+            <button id="editApplication" class="secondary" type="button">Go back and edit</button>
+            <button id="confirmApplication" class="primary" type="button">Confirm and apply</button>
+          </div>
+        </div>
+      </dialog>
+    </div>
+
+    <div id="applicationSuccess" class="success" hidden aria-live="polite"></div>
+
+    <dialog id="qrDialog" class="dialog qr-dialog" aria-label="Official eSewa QR">
+      <div class="dialog-inner">
+        <h3>Scan with eSewa</h3>
+        <img src="/assets/esewa-qr.png" alt="Official eSewa payment QR of the institute" loading="lazy" decoding="async">
+        <p>After paying, write the transaction reference in the form. The institute checks it before counting it as paid.</p>
+        <button type="button" class="secondary" id="qrClose">Close</button>
+      </div>
+    </dialog>
+
+    <details class="track">
+      <summary>Already applied? Check your application</summary>
+      <form id="trackForm" novalidate>
+        <label class="row compact" for="trackNumber"><span class="label">Application number</span><input id="trackNumber" name="applicationNumber" required maxlength="40" placeholder="BSTI-YYMMDD-XXXXXXXX"></label>
+        <label class="row compact" for="trackMobile"><span class="label">Contact No.</span><input id="trackMobile" name="mobileNumber" required maxlength="20" inputmode="tel" placeholder="98XXXXXXXX"></label>
+        <div id="trackMessage" class="form-message" role="status" hidden></div>
+        <button class="secondary" type="submit">Check status</button>
+        <div id="trackResult" class="track-result" hidden></div>
+      </form>
+    </details>
+
+    <footer class="foot">
+      <p><b>Butwal Skills Training Institute</b> · Butwal-8, Milanchowk, Rupandehi · <a href="tel:9811927939">9811927939</a></p>
+      <p><a href="/admin.html">Staff login</a> · © <span id="year"></span></p>
+    </footer>
+  </main>
+  <script src="/admission-print.js" defer></script>
+  <script src="/apply.js" defer></script>
+</body>
+</html>
