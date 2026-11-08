@@ -2,6 +2,7 @@
 
 ## Hosting-readiness fixes (2026-11-07)
 
+- Home page 404 fixed: static files are now served before routing. The catch-all 404 fallback used to match `/` first, so `UseDefaultFiles` never served `index.html` (only `/index.html` worked). Verified by running the published app in Production mode: `/`, `/index.html`, `/admin` (redirect), `/admin.html`, `/healthz`, `/api/security/token`, static assets return the expected codes; `/api/admin/me` returns 401; unknown paths return the 404 page.
 - PostgreSQL startup crash fixed: the column check compared `FatherName` with PostgreSQL's lower-case `fathername`, so the app tried to add an existing column and exited (`42701 column "fathername" ... already exists`). The check is now case-insensitive and the ALTER uses `IF NOT EXISTS`. The converted schema and all main queries were run against a real PostgreSQL 16 server.
 - Dockerfile installs `libgssapi-krb5-2` (Npgsql logged `Cannot load library libgssapi_krb5.so.2`).
 - Dockerfile: removed `groupadd`/`useradd` for `app`. The official .NET images already contain that user, so the old lines would fail the Docker build. The image now reuses the existing `app` user.

@@ -145,10 +145,7 @@ app.Use(async (context, next) =>
     context.Response.Headers["Permissions-Policy"] = "camera=(), microphone=(), geolocation=()";
     await next();
 });
-app.UseRateLimiter();
-app.UseAuthentication();
-app.UseAuthorization();
-app.UseAntiforgery();
+// Static files come BEFORE routing. Otherwise the catch-all 404 fallback matches "/" first and UseDefaultFiles can never serve index.html.
 app.UseDefaultFiles();
 app.UseStaticFiles(new StaticFileOptions
 {
@@ -159,6 +156,11 @@ app.UseStaticFiles(new StaticFileOptions
             : "public,max-age=86400";
     }
 });
+app.UseRouting();
+app.UseRateLimiter();
+app.UseAuthentication();
+app.UseAuthorization();
+app.UseAntiforgery();
 
 // Liveness probe: no database access, so hosting health checks stay cheap and never keep a sleeping database awake.
 app.MapGet("/healthz", () => Results.Ok(new { status = "ok" }));
